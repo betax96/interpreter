@@ -3,6 +3,14 @@
 
 #include <QMainWindow>
 #include <QLabel>
+#include <QFileDialog>
+#include <QTextStream>
+#include <QFontDialog>
+#include <goto.h>
+#include <QMessageBox>
+#include <QMimeData>
+#include <QTextBlock>
+#include "searchreplacedialog.h"
 #include "configfile.h"
 
 namespace Ui {

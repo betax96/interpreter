@@ -1,6 +1,5 @@
 #include "searchreplacedialog.h"
 #include "ui_searchreplacedialog.h"
-#include <QMessageBox>
 
 SearchReplaceDialog::SearchReplaceDialog(QWidget *parent, QPlainTextEdit *p) :
     QDialog(parent),

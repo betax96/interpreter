@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QPlainTextEdit>
+#include <QMessageBox>
 
 namespace Ui {
 class ReplaceDialog;

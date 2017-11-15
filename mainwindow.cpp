@@ -1,13 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QFileDialog>
-#include <QTextStream>
-#include <QFontDialog>
-#include "searchreplacedialog.h"
-#include <goto.h>
-#include <QMessageBox>
-#include <QMimeData>
-#include <QTextBlock>
 
 extern void setTextEditError(QPlainTextEdit* edit1);
 extern int parse_string(const char* in);
