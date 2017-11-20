@@ -11,6 +11,8 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = interpreter
 TEMPLATE = app
 
+RC_FILE = interpreter.rc
+
 SOURCES += main.cpp\
         mainwindow.cpp \
     searchreplacedialog.cpp \
@@ -38,3 +40,6 @@ LIBS += -L$$PWD/ -licdelib
 
 INCLUDEPATH += $$PWD/icde_incl
 DEPENDPATH += $$PWD/icde_incl
+
+RESOURCES += \
+    icons.qrc

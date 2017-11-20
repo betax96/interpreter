@@ -31,19 +31,24 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->actionIr_a->setDisabled(true);
     ui->actionBuscar->setDisabled(true);
     ui->actionReemplazar->setDisabled(true);
+    ui->quickSearch->setDisabled(true);
 
     connect(ui->actionIr_a,SIGNAL(triggered(bool)),gd,SLOT(showGoTo()));
     connect(ui->actionNuevo,SIGNAL(triggered(bool)),this,SLOT(newFile()));
     connect(ui->actionAbrir,SIGNAL(triggered(bool)),this,SLOT(openFile()));
+    connect(ui->quickOpen,SIGNAL(pressed()),this,SLOT(openFile()));
     connect(ui->actionSalir,SIGNAL(triggered(bool)),this, SLOT(close()));
     connect(ui->actionGuardar,SIGNAL(triggered(bool)),this,SLOT(save()));
+    connect(ui->quickSave,SIGNAL(pressed()),this,SLOT(save()));
     connect(ui->actionGuardar_como,SIGNAL(triggered(bool)),this,SLOT(saveAs()));
     connect(ui->actionFuente,SIGNAL(triggered(bool)),this,SLOT(selectFont()));
     connect(ui->plainTextEdit,SIGNAL(cursorPositionChanged()),this,SLOT(cursorPos()));
     connect(ui->actionEvaluar,SIGNAL(triggered(bool)),this,SLOT(evaluate()));
+    connect(ui->quickEval,SIGNAL(pressed()),this,SLOT(evaluate()));
     connect(ui->actionBarra_de_estado,SIGNAL(triggered(bool)),this,SLOT(statusBar(bool)));
     connect(ui->actionResultados,SIGNAL(triggered(bool)),this,SLOT(resultsBox(bool)));
     connect(ui->actionBuscar,SIGNAL(triggered(bool)),rd,SLOT(showSearch()));
+    connect(ui->quickSearch,SIGNAL(pressed()),rd,SLOT(showSearch()));
     connect(ui->actionBuscar_siguiente,SIGNAL(triggered(bool)),rd,SLOT(search()));
     connect(ui->actionReemplazar,SIGNAL(triggered(bool)),rd,SLOT(showReplace()));
     connect(ui->actionCopiar,SIGNAL(triggered(bool)),this,SLOT(copy()));
@@ -58,6 +63,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(rd,SIGNAL(searchAvailableChange(bool)),this,SLOT(switchFindNextAction(bool)));
     connect(ui->plainTextEdit->document(),SIGNAL(contentsChanged()),this,SLOT(switchMenuDocIsEmpty()));
     connect(ui->plainTextEdit,SIGNAL(dropEventSignal(QString)),this,SLOT(dropEventOpen(QString)));
+    connect(ui->quickClear,SIGNAL(pressed()),this,SLOT(clearResults()));
 }
 
 void MainWindow::evaluate()
@@ -295,6 +301,7 @@ void MainWindow::switchMenuDocIsEmpty(){
     }
     ui->actionIr_a->setDisabled(isEmpty);
     ui->actionBuscar->setDisabled(isEmpty);
+    ui->quickSearch->setDisabled(isEmpty);
     ui->actionReemplazar->setDisabled(isEmpty);
 }
 
@@ -324,6 +331,11 @@ void MainWindow::closeEvent(QCloseEvent *event)
 
 void MainWindow::dropEventOpen(QString mimeText){
     openFile(mimeText);
+}
+
+void MainWindow::clearResults()
+{
+    ui->plainTextEdit_2->document()->clear();
 }
 
 

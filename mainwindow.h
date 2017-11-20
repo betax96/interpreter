@@ -48,6 +48,7 @@ public slots:
     void closeEvent(QCloseEvent *event);
     void loadCfg(QString configFile);
     void dropEventOpen(QString mimeText);
+    void clearResults();
 
 private:
     Ui::MainWindow *ui;

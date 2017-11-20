@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>icons/clear.ico</file>
+        <file>icons/eval.ico</file>
+        <file>icons/open.png</file>
+        <file>icons/save.png</file>
+        <file>icons/search.png</file>
+    </qresource>
+</RCC>
